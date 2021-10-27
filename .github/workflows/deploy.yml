@@ -16,8 +16,7 @@ jobs:
         node-version: 14.x
     - run: npm ci
       working-directory: bamba-admin-pwa
-#    - run: npm run build --if-present
-    - run: ng build -op ../dist
+    - run: npm run build --if-present
       working-directory: bamba-admin-pwa
     - name: Deploy
       uses: s0/git-publish-subdir-action@develop
