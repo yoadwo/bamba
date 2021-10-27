@@ -4,6 +4,10 @@ on:
     branches:	
       - master
 
+defaults:
+  run:
+    working-directory: bamba-admin-pwa
+
 jobs:
   deploy:
     name: Deploy
