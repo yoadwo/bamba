@@ -23,7 +23,6 @@ jobs:
       env:
         REPO: self
         BRANCH: gh-pages
-        FOLDER: dist
-        working-directory: bamba-admin-pwa
+        FOLDER: bamba-admin-pwa/dist
         
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
