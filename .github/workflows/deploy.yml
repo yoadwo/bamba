@@ -15,10 +15,9 @@ jobs:
       with:
         node-version: 14.x
     - name: npm install and build
-    - run: npm ci
-      working-directory: bamba-admin-pwa
-    - run: npm run build --if-present
-      working-directory: bamba-admin-pwa
+      run: |
+        npm ci
+        working-directory: bamba-admin-pwa
     - name: Deploy
       uses: s0/git-publish-subdir-action@develop
       env:
