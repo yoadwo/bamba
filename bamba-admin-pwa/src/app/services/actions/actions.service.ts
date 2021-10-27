@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
-//const baseUrl = 'http://openlibrary.org';
 //const baseUrl = 'http://localhost:61839/api/actions';
-const baseUrl = 'http://2bfa-77-125-32-61.ngrok.io/api/actions';
+//const baseUrl = 'http://2bfa-77-125-32-61.ngrok.io/api/actions';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class ActionsService {
   constructor(private http: HttpClient) { }
 
   async get(route: string, data?: any) {
-    const url = baseUrl+route;
+    const url = environment.baseUrl + route;
     let params = new HttpParams();
 
     if (data !== undefined) {
@@ -41,7 +41,7 @@ export class ActionsService {
   }
 
   launchAction(title: string){
-    let url = `${baseUrl}/launch`;
+    let url = `${environment.baseUrl}/launch`;
   let search = new URLSearchParams();
   search.set('title', title);
   this.http.post(url + '?' + search.toString(), {}).subscribe(res => console.log(res));

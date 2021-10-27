@@ -46,6 +46,10 @@ namespace BambaAdminAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseHttpsRedirection();
+            }            
 
             app.UseRouting();
 
