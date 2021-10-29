@@ -7,5 +7,5 @@ function getPublicTunnel(){
 
 export const environment = {
   production: true,
-  baseUrl: getPublicTunnel() + 'api/actions'
+  baseUrl: 'https://05fc-77-125-32-61.ngrok.io' + 'api/actions'
 };
