@@ -25,7 +25,6 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/assets/tunnels.json",
               "src/manifest.webmanifest"
             ],
             "styles": [

@@ -1,9 +1,9 @@
-import * as Tunnels from '../assets/tunnels.json';
+//import * as Tunnels from '../assets/tunnels.json';
 
-function getPublicTunnel(){
+/* function getPublicTunnel(){
   var httpsTunnel = Tunnels.tunnels.find(t => t.public_url.includes("https"));
   return httpsTunnel?.public_url;
-}
+} */
 
 export const environment = {
   production: true,
