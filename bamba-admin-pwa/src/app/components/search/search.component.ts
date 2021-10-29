@@ -27,11 +27,11 @@ export class SearchComponent implements OnInit {
   }
 
   async searchActions() {
-    const results = await this.actionsService.getActions();
+    const results = await this.actionsService.getAllActions();
     this.actions.data = results;
   }
 
-  launchSound(title: string) {
+  launchSound(title: string) {    
     this.actionsService.launchAction(title);
   }
 }
