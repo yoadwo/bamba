@@ -1,0 +1,87 @@
+{
+  "configVersion": 1,
+  "timestamp": 1635521491535,
+  "index": "/bamba/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/bamba/favicon.ico",
+        "/bamba/index.html",
+        "/bamba/main.00cac8c275035404abce.js",
+        "/bamba/manifest.webmanifest",
+        "/bamba/polyfills.44c590ddbac99562b407.js",
+        "/bamba/runtime.948de09598a663b099c4.js",
+        "/bamba/styles.a88c0d9871c551d07735.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/bamba/assets/icons/icon-128x128.png",
+        "/bamba/assets/icons/icon-144x144.png",
+        "/bamba/assets/icons/icon-152x152.png",
+        "/bamba/assets/icons/icon-192x192.png",
+        "/bamba/assets/icons/icon-384x384.png",
+        "/bamba/assets/icons/icon-512x512.png",
+        "/bamba/assets/icons/icon-72x72.png",
+        "/bamba/assets/icons/icon-96x96.png",
+        "/bamba/assets/logo.jpg",
+        "/bamba/assets/logo_ps.png",
+        "/bamba/assets/tunnels.json"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/bamba/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/bamba/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/bamba/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/bamba/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/bamba/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/bamba/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/bamba/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/bamba/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/bamba/assets/logo.jpg": "2d18454ace70f66a19389078da79453100079e2c",
+    "/bamba/assets/logo_ps.png": "3ac905c9d3815bd6b96a381ea60755999352f84f",
+    "/bamba/assets/tunnels.json": "47374e7597ac34e17f27d8c7b0879811c4907597",
+    "/bamba/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/bamba/index.html": "1a2779b0ec07f94ac91df744013a4576dee0c6e5",
+    "/bamba/main.00cac8c275035404abce.js": "1e0f9e21d03e0c37a83b833e2805f35774676ea8",
+    "/bamba/manifest.webmanifest": "3fee276d01f394d23b07ac4d8d6b66c605ddeba8",
+    "/bamba/polyfills.44c590ddbac99562b407.js": "8aa5fcbd6cb0c2ba76e3a562657343dc0a3a33a4",
+    "/bamba/runtime.948de09598a663b099c4.js": "6f726248efa61cd5132e50a3146bd6385ea37f89",
+    "/bamba/styles.a88c0d9871c551d07735.css": "700b1fa0bc8576a2ffaee8c9c250950dba4f2add"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
