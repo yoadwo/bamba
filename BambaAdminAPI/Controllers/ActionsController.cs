@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using BambaAdminAPI.Services.ActionsService;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NAudio.Wave;
@@ -13,40 +14,36 @@ namespace BambaAdminAPI.Controllers
     [ApiController]
     public class ActionsController : ControllerBase
     {
-        private static readonly Models.Action[] actions = new[]
-        {
-            new Models.Action { Title = "Stop", AudioPath = "Assets\\Audio\\tada.wav" },
-            new Models.Action { Title = "No", AudioPath = "Assets\\Audio\\tada.wav" },            
-            new Models.Action { Title = "Place", AudioPath = "Assets\\Audio\\tada.wav" }            
-        };
-
+        private readonly IActionsService _actionsService;
         private readonly ILogger<ActionsController> _logger;
 
-        public ActionsController(ILogger<ActionsController> logger)
+        public ActionsController(
+            IActionsService actionsService,
+            ILogger<ActionsController> logger)
         {
+            _actionsService = actionsService;
             _logger = logger;
         }
 
         [HttpGet]
-        [Route("search")]
+        [Route("get")]
         public IEnumerable<Models.Action> Search(string title)
         {
-            return actions.Where(action => action.Title.Contains(title))
-                .Select(action => new Models.Action { Title = action.Title });
+            return _actionsService.Find(title);
         }
 
         [HttpGet]
-        [Route("get")]
-        public IEnumerable<Models.Action> Get()
+        [Route("getAll")]
+        public IEnumerable<Models.Action> GetAll()
         {
-            return actions;
+            return _actionsService.GetAll();
         }
 
         [HttpPost]
         [Route("launch")]
         public void Launch(string title)
         {
-            var actionToExecute = actions.FirstOrDefault(action => action.Title.Contains(title));
+            var actionToExecute = _actionsService.Get(title);
             if (actionToExecute == null)
             {
                 return;
