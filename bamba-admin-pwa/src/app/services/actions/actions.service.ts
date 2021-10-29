@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import * as Tunnels from '../../../assets/tunnels.json';
+//import * as Tunnels from '../../../assets/tunnels.json';
 
 //const baseUrl = 'http://localhost:61839/api/actions';
 //const baseUrl = 'http://2bfa-77-125-32-61.ngrok.io/api/actions';
