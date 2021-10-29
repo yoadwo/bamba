@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  //const baseUrl = 'http://localhost:61839/api/actions';
-  baseUrl: 'http://2bfa-77-125-32-61.ngrok.io/api/actions'
+  baseUrl : 'http://localhost:61839/api/actions'
+  //baseUrl: 'http://2bfa-77-125-32-61.ngrok.io/api/actions'
 };
 
 /*

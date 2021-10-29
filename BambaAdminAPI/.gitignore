@@ -72,7 +72,8 @@ artifacts/
 [Rr]eleases/
 build/
 bld/
-
+[Bb]in/
+[Oo]bj/
 msbuild.log
 msbuild.err
 msbuild.wrn
