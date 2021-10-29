@@ -20,6 +20,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { DetailsComponent } from './components/details/details.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,13 @@ import { DetailsComponent } from './components/details/details.component';
     MatTableModule,
     MatDividerModule,
     MatProgressSpinnerModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
