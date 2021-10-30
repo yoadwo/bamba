@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { NgrokUrlService } from './services/ngrokUrl/ngrok-url.service';
 
 @Component({
   selector: 'app-root',
@@ -11,24 +10,17 @@ import { environment } from 'src/environments/environment';
 export class AppComponent implements OnInit {
   title = 'Bamba-admin-pwa';
   url: string = '';
-  searchForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,
-              private router: Router) {
-                //this.searchForm = new FormGroup({});
+  constructor(private ngrokUrl: NgrokUrlService) {
   }
 
   ngOnInit(): void {
-    this.searchForm = this.formBuilder.group({
-      search: ['', Validators.required],
-    });
-    this.url += environment.baseUrl;
-  }
+    if (!environment.production){
+      this.url += environment.baseUrl;
+    } else {
+      this.url += this.ngrokUrl.getPublicTunnel();
+    }
 
-  onSearch(): void {
-    if (!this.searchForm.valid) { return; }
-    this.router.navigate(['search'], {      
-       queryParams: {query: this.searchForm?.get('search')?.value}
-      });
+    
   }
 }
