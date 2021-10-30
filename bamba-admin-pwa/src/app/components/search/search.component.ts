@@ -13,7 +13,7 @@ import { Action } from 'src/app/models/action';
 export class SearchComponent implements OnInit {
   private subscription!: Subscription;
 
-  displayedColumns: string[] = ['title', 'preview', 'launch'];
+  displayedColumns: string[] = ['launch', 'preview', 'title'];
   actions = new MatTableDataSource<Action>();
 
   constructor(private actionsService: ActionsService) { }

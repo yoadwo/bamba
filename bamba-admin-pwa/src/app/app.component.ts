@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   title = 'Bamba-admin-pwa';
+  url: string = '';
   searchForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
@@ -20,6 +22,7 @@ export class AppComponent implements OnInit {
     this.searchForm = this.formBuilder.group({
       search: ['', Validators.required],
     });
+    this.url += environment.baseUrl;
   }
 
   onSearch(): void {
