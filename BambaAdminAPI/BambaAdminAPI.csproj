@@ -13,7 +13,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Assets\Audio\bamba-down,bamba-no,good-dog.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Assets\Audio\bamba-down.aac">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Audio\bamba-down.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Assets\Audio\bamba-down.wav">
@@ -25,6 +31,9 @@
     <None Update="Assets\Audio\bamba-no.aac">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Assets\Audio\bamba-no.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Assets\Audio\bamba-no.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -34,10 +43,16 @@
     <None Update="Assets\Audio\desktop.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Assets\Audio\good-dog.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Assets\Audio\good-dog.wma">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Assets\Audio\just-bamba.aac">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Audio\just-bamba.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Assets\Audio\just-bamba.wav">
@@ -49,6 +64,9 @@
     <None Update="Assets\Audio\just-down.aac">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Assets\Audio\just-down.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Assets\Audio\just-down.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -58,6 +76,9 @@
     <None Update="Assets\Audio\just-no.aac">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Assets\Audio\just-no.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Assets\Audio\just-no.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -65,6 +86,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Assets\Audio\tada.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Audio\yofi-bamba.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Assets\Audio\yofi-bamba.wma">

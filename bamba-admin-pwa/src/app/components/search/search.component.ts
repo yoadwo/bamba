@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { VoiceCommandsHttpService } from '../../services/voiceCommandsHttp/voiceCommandsHttp.service';
 import { Subscription } from 'rxjs';
 import { VoiceCommand } from 'src/app/models/VoiceCommand';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-search',
@@ -14,13 +15,24 @@ export class SearchComponent implements OnInit {
 
   displayedColumns: string[] = ['launch', 'preview', 'title'];
   voiceCommandsTable = new MatTableDataSource<VoiceCommand>();
+  audioPreview: any;
+  isTableValid: boolean;
 
-  constructor(private voiceCommandsHttp: VoiceCommandsHttpService) { }
+  constructor(private voiceCommandsHttp: VoiceCommandsHttpService) {
+    this.isTableValid = true;
+   }
 
   ngOnInit() {
-    this.voiceCommandsHttp.getAllActions().
+    this.voiceCommandsHttp.getAllVoiceCommands().
     then(results => {
+      this.isTableValid = true;
       this.voiceCommandsTable.data = results;
+    })
+    .catch(err => {
+      this.isTableValid = false;
+      console.error(err);
+      this.voiceCommandsTable.data = [];
+      
     })
   }
 
@@ -30,5 +42,9 @@ export class SearchComponent implements OnInit {
 
   activateVoiceCommand(id: number) {    
     this.voiceCommandsHttp.activateVoiceCommand(id);
+  }
+
+  PlayAudioPreview(id: number){
+    return this.voiceCommandsHttp.getAudioPreview(id);
   }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { NgrokUrlService } from '../ngrokUrl/ngrok-url.service';
 
@@ -44,8 +44,13 @@ export class VoiceCommandsHttpService  {
     });
   }
 
-  getAllActions():Promise<any> {
-    return this.get('/voiceCommand');
+  getAllVoiceCommands():Promise<any> {
+    return this.get('/');
+  }
+
+  getAudioPreview(id: number){
+    //return this.get('/preview');
+    return this.voiceCommandUrl + '/preview?id=' + id;
   }
 
   activateVoiceCommand(id: number){
