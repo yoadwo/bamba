@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BambaAdminAPI.Models
 {
-    public class Action
+    public class VoiceCommand
     {
         public int Id { get; set; }
         public string Title { get; set; }

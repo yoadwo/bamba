@@ -1,20 +1,20 @@
 <h1 class="h1">לחצו להפעלת הקובץ הקולי</h1>
 <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" class="products">
-  <table mat-table fxFlex="100%" fxFlex.gt-sm="66%" [dataSource]="actions" class="mat-elevation-z1">
+  <table mat-table fxFlex="100%" fxFlex.gt-sm="66%" [dataSource]="voiceCommandsTable" class="mat-elevation-z1">
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef>פעולה</th>
-      <td mat-cell *matCellDef="let action"> {{action.title}} </td>
+      <td mat-cell *matCellDef="let voiceCommand"> {{voiceCommand.title}} </td>
     </ng-container>
     <ng-container matColumnDef="preview">
       <th mat-header-cell *matHeaderCellDef>תצוגה מקדימה</th>
-      <td mat-cell *matCellDef="let action">
-        <button mat-icon-button (click)="launchSound(action.id)"><mat-icon>volume_up</mat-icon></button>
+      <td mat-cell *matCellDef="let voiceCommand">
+        <button mat-icon-button (click)="activateVoiceCommand(voiceCommand.id)"><mat-icon>volume_up</mat-icon></button>
       </td>
     </ng-container>
     <ng-container matColumnDef="launch">
       <th mat-header-cell *matHeaderCellDef>הפעלה במחשב</th>
-      <td mat-cell *matCellDef="let action">
-        <button mat-icon-button (click)="launchSound(action.id)"><mat-icon>settings_remote</mat-icon></button>
+      <td mat-cell *matCellDef="let voiceCommand">
+        <button mat-icon-button (click)="activateVoiceCommand(voiceCommand.id)"><mat-icon>settings_remote</mat-icon></button>
       </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -2,16 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { NgrokUrlService } from '../ngrokUrl/ngrok-url.service';
-//import * as Tunnels from '../../../assets/tunnels.json';
 
-//const baseUrl = 'http://localhost:61839/api/actions';
-//const baseUrl = 'http://2bfa-77-125-32-61.ngrok.io/api/actions';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ActionsService  {
-  actionsUrl: string = '';
+export class VoiceCommandsHttpService  {
+  voiceCommandUrl: string = '';
 
   constructor(
     private http: HttpClient,
@@ -22,13 +19,13 @@ export class ActionsService  {
       } else {
         url = this.ngrok.getPublicTunnel();
       }
-      this.actionsUrl = url + '/api/actions';
+      this.voiceCommandUrl = url + '/api/voiceCommands';
      }
 
     
 
   async get(route: string, data?: any) {
-    var url = this.actionsUrl + route;
+    var url = this.voiceCommandUrl + route;
     let params = new HttpParams();
 
     if (data !== undefined) {
@@ -48,11 +45,11 @@ export class ActionsService  {
   }
 
   getAllActions():Promise<any> {
-    return this.get('/getAll');
+    return this.get('/voiceCommand');
   }
 
-  launchAction(id: number){
-    var url = this.actionsUrl + '/launch';
+  activateVoiceCommand(id: number){
+    var url = this.voiceCommandUrl + '/activate';
     let search = new URLSearchParams();
     search.set('id', id.toString());
     this.http.post(url + '?' + search.toString(), {}).subscribe();

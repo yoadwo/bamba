@@ -1,4 +1,4 @@
-export class Action {
+export class VoiceCommand {
     Id!: number;
     Title!: string;
 }

@@ -38,7 +38,7 @@ namespace BambaAdminAPI
 
             services.AddControllers();
 
-            services.AddSingleton<Services.ActionsService.IActionsService, Services.ActionsService.ActionsService>();
+            services.AddSingleton<Services.VoiceCommandsStorageService.IVoiceCommandsStorageService, Services.VoiceCommandsStorageService.VoiceCommandsStorageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

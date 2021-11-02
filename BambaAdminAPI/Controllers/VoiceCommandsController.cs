@@ -1,4 +1,4 @@
-﻿using BambaAdminAPI.Services.ActionsService;
+﻿using BambaAdminAPI.Services.VoiceCommandsStorageService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -12,31 +12,31 @@ namespace BambaAdminAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ActionsController : ControllerBase
+    public class VoiceCommandsController : ControllerBase
     {
-        private readonly IActionsService _actionsService;
-        private readonly ILogger<ActionsController> _logger;
+        private readonly IVoiceCommandsStorageService _voiceCommandsStorageService;
+        private readonly ILogger<VoiceCommandsController> _logger;
 
-        public ActionsController(
-            IActionsService actionsService,
-            ILogger<ActionsController> logger)
+        public VoiceCommandsController(
+            IVoiceCommandsStorageService vcStgService,
+            ILogger<VoiceCommandsController> logger)
         {
-            _actionsService = actionsService;
+            _voiceCommandsStorageService = vcStgService;
             _logger = logger;
         }
 
         [HttpGet]
-        [Route("getAll")]
-        public IEnumerable<Models.Action> GetAll()
+        [Route("voiceCommand")]
+        public IEnumerable<Models.VoiceCommand> GetAll()
         {
-            return _actionsService.GetAll();
+            return _voiceCommandsStorageService.GetAll();
         }
 
         [HttpPost]
-        [Route("launch")]
-        public void Launch(int id)
+        [Route("activate")]
+        public void Activate(int id)
         {
-            var actionToExecute = _actionsService.Get(id);
+            var actionToExecute = _voiceCommandsStorageService.Get(id);
             if (actionToExecute == null)
             {
                 return;

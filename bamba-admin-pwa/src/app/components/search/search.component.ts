@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActionsService } from '../../services/actions/actions.service';
+import { VoiceCommandsHttpService } from '../../services/voiceCommandsHttp/voiceCommandsHttp.service';
 import { Subscription } from 'rxjs';
-import { Action } from 'src/app/models/action';
+import { VoiceCommand } from 'src/app/models/VoiceCommand';
 
 @Component({
   selector: 'app-search',
@@ -14,14 +13,14 @@ export class SearchComponent implements OnInit {
   private subscription!: Subscription;
 
   displayedColumns: string[] = ['launch', 'preview', 'title'];
-  actions = new MatTableDataSource<Action>();
+  voiceCommandsTable = new MatTableDataSource<VoiceCommand>();
 
-  constructor(private actionsService: ActionsService) { }
+  constructor(private voiceCommandsHttp: VoiceCommandsHttpService) { }
 
   ngOnInit() {
-    this.actionsService.getAllActions().
+    this.voiceCommandsHttp.getAllActions().
     then(results => {
-      this.actions.data = results;
+      this.voiceCommandsTable.data = results;
     })
   }
 
@@ -29,7 +28,7 @@ export class SearchComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 
-  launchSound(id: number) {    
-    this.actionsService.launchAction(id);
+  activateVoiceCommand(id: number) {    
+    this.voiceCommandsHttp.activateVoiceCommand(id);
   }
 }

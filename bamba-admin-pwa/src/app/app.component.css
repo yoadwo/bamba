@@ -9,6 +9,8 @@ footer {
 
 footer > .expanded-toolbar {
   justify-content: center;
+  height: 32px;
+  font-size: small;
 }
 
 .expanded-toolbar, p {
