@@ -19,19 +19,17 @@ export class SearchComponent implements OnInit {
   constructor(private actionsService: ActionsService) { }
 
   ngOnInit() {
-    this.searchActions();
+    this.actionsService.getAllActions().
+    then(results => {
+      this.actions.data = results;
+    })
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
-  async searchActions() {
-    const results = await this.actionsService.getAllActions();
-    this.actions.data = results;
-  }
-
-  launchSound(title: string) {    
-    this.actionsService.launchAction(title);
+  launchSound(id: number) {    
+    this.actionsService.launchAction(id);
   }
 }

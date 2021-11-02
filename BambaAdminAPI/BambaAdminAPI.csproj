@@ -34,6 +34,9 @@
     <None Update="Assets\Audio\desktop.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Assets\Audio\good-dog.wma">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Assets\Audio\just-bamba.aac">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -62,6 +65,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Assets\Audio\tada.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Audio\yofi-bamba.wma">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

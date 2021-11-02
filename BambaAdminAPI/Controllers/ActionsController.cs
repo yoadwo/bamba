@@ -26,13 +26,6 @@ namespace BambaAdminAPI.Controllers
         }
 
         [HttpGet]
-        [Route("get")]
-        public IEnumerable<Models.Action> Search(string title)
-        {
-            return _actionsService.Find(title);
-        }
-
-        [HttpGet]
         [Route("getAll")]
         public IEnumerable<Models.Action> GetAll()
         {
@@ -41,15 +34,15 @@ namespace BambaAdminAPI.Controllers
 
         [HttpPost]
         [Route("launch")]
-        public void Launch(string title)
+        public void Launch(int id)
         {
-            var actionToExecute = _actionsService.Get(title);
+            var actionToExecute = _actionsService.Get(id);
             if (actionToExecute == null)
             {
                 return;
             }
-
-            using (var audioFile = new AudioFileReader(actionToExecute.AudioPath))
+            var audioPath = "Assets\\Audio\\";
+            using (var audioFile = new AudioFileReader(audioPath + actionToExecute.AudioPath))
             using (var outputDevice = new WaveOutEvent())
             {
                 outputDevice.Init(audioFile);

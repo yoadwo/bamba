@@ -8,7 +8,7 @@ namespace BambaAdminAPI.Services.ActionsService
     public interface IActionsService
     {
         IEnumerable<Models.Action> Find(string title);
-        Models.Action Get(string title);
+        Models.Action Get(int id);
         IEnumerable<Models.Action> GetAll();
     }
 }

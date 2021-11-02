@@ -9,11 +9,13 @@ namespace BambaAdminAPI.Services.ActionsService
     {
         private static readonly Models.Action[] actions = new[]
         {
-            new Models.Action { Title = "במבה", AudioPath = "Assets\\Audio\\just-bamba.wma" },
-            new Models.Action { Title = "לא", AudioPath = "Assets\\Audio\\just-no.wma" },
-            new Models.Action { Title = "למטה", AudioPath = "Assets\\Audio\\just-down.wma" },
-            new Models.Action { Title = "במבה לא", AudioPath = "Assets\\Audio\\bamba-no.wma" },
-            new Models.Action { Title = "במבה למטה", AudioPath = "Assets\\Audio\\bamba-down.wma" }
+            new Models.Action { Id = 0, Title = "במבה", AudioPath = "just-bamba.wma" },
+            new Models.Action { Id = 1, Title = "לא", AudioPath = "just-no.wma" },
+            new Models.Action { Id = 2, Title = "למטה", AudioPath = "just-down.wma" },
+            new Models.Action { Id = 3, Title = "במבה לא", AudioPath = "bamba-no.wma" },
+            new Models.Action { Id = 4, Title = "במבה למטה", AudioPath = "bamba-down.wma" },
+            new Models.Action { Id = 5, Title = "כלבה טובה", AudioPath = "good-dog.wma" },
+            new Models.Action { Id = 6, Title = "יופי במבה", AudioPath = "yofi-bamba.wma" },
             
         };
 
@@ -23,9 +25,9 @@ namespace BambaAdminAPI.Services.ActionsService
                 .Select(action => new Models.Action { Title = action.Title });
         }
 
-        public Models.Action Get(string title)
+        public Models.Action Get(int id)
         {
-            return actions.FirstOrDefault(action => action.Title.Contains(title));
+            return actions.FirstOrDefault(action => action.Id == id);
         }
 
         public IEnumerable<Models.Action> GetAll()

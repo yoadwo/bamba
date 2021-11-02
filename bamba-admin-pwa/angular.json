@@ -32,7 +32,6 @@
               "src/styles.css"
             ],
             "scripts": [],
-            "baseHref":"/bamba/",
             "serviceWorker": true,
             "ngswConfigPath": "ngsw-config.json"
           },
@@ -56,6 +55,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
+              "baseHref":"/bamba/",
               "outputHashing": "all"
             },
             "development": {

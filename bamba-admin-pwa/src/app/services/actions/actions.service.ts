@@ -47,18 +47,14 @@ export class ActionsService  {
     });
   }
 
-  searchActions(query: string):Promise<any> {
-    return this.get('/search', {title: query});
-  }
-
   getAllActions():Promise<any> {
     return this.get('/getAll');
   }
 
-  launchAction(title: string){
+  launchAction(id: number){
     var url = this.actionsUrl + '/launch';
-  let search = new URLSearchParams();
-  search.set('title', title);
-  this.http.post(url + '?' + search.toString(), {}).subscribe();
+    let search = new URLSearchParams();
+    search.set('id', id.toString());
+    this.http.post(url + '?' + search.toString(), {}).subscribe();
   }
 }
