@@ -19,7 +19,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
-import { DetailsComponent } from './components/details/details.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
@@ -27,8 +26,7 @@ import { environment } from '../environments/environment';
   declarations: [
     AppComponent,
     HomeComponent,
-    SearchComponent,
-    DetailsComponent
+    SearchComponent
   ],
   imports: [
     BrowserModule,
