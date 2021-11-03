@@ -9,7 +9,8 @@
       <ng-container matColumnDef="preview">
         <th mat-header-cell *matHeaderCellDef>תצוגה מקדימה</th>
         <td mat-cell *matCellDef="let voiceCommand">
-          <button mat-icon-button (click)="PlayAudioPreview(voiceCommand.id)">
+          <button mat-icon-button (click)="playAudioPreview(voiceCommand)"
+          [disabled]="voiceCommand.isPlaying">
             <mat-icon>volume_up</mat-icon>
           </button>
         </td>
@@ -26,8 +27,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </div>
-  <audio #audioOption>
-    <!-- <source [src]="PlayAudioPreview(voiceCommand.id)"> -->
+  <audio #audioOption>    
   </audio>
 </div>
 <ng-template #tableErr>
