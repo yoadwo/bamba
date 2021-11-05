@@ -1,8 +1,13 @@
 th.mat-header-cell,
 td.mat-cell {
   text-align: center;
+  color: black;
 }
 
 audio {
   height: 1.75rem;
+}
+
+tr.mat-header-row {
+  background-color: lemonchiffon;
 }
