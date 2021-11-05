@@ -8,7 +8,7 @@ import { NgrokUrlService } from './services/ngrokUrl/ngrok-url.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Bamba-admin-pwa';
+  title = 'כלבלב בשלט רחוק';
   url: string = '';
 
   constructor(private ngrokUrl: NgrokUrlService) {
