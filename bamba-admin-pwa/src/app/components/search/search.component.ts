@@ -3,7 +3,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { VoiceCommandsHttpService } from '../../services/voiceCommandsHttp/voiceCommandsHttp.service';
 import { Subscription } from 'rxjs';
 import { VoiceCommand } from 'src/app/models/VoiceCommand';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-search',
