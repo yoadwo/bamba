@@ -34,13 +34,16 @@ namespace BambaAdminAPI.Controllers
 
         [HttpPost]
         [Route("activate")]
-        public void Activate(int id)
+        public async Task<IActionResult> Activate(int id)
         {
             var voiceCommandToExecute = _voiceCommandsStorageService.Get(id);
             if (voiceCommandToExecute == null)
             {
-                return;
+                return NotFound(id);
             }
+            _logger.LogInformation("Voice Command found with id {0}, audio path '{1}'",
+                id, voiceCommandToExecute.AudioPath);
+
             var audioPath = "Assets\\Audio\\";
             using (var audioFile = new AudioFileReader(audioPath + voiceCommandToExecute.AudioPath))
             using (var outputDevice = new WaveOutEvent())
@@ -49,9 +52,10 @@ namespace BambaAdminAPI.Controllers
                 outputDevice.Play();
                 while (outputDevice.PlaybackState == PlaybackState.Playing)
                 {
-                    System.Threading.Thread.Sleep(1000);
+                    await Task.Delay(1000);
                 }
             }
+            return Ok(new { id, status = true });
         }
 
         [HttpGet]

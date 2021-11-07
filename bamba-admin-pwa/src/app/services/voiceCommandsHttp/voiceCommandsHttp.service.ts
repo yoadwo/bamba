@@ -57,6 +57,6 @@ export class VoiceCommandsHttpService  {
     var url = this.voiceCommandUrl + '/activate';
     let search = new URLSearchParams();
     search.set('id', id.toString());
-    this.http.post(url + '?' + search.toString(), {}).subscribe();
+    return this.http.post(url + '?' + search.toString(), {});
   }
 }

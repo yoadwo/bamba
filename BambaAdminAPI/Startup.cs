@@ -36,6 +36,7 @@ namespace BambaAdminAPI
             });
 
             services.AddControllers();
+            services.AddLogging();
 
             services.AddSingleton<Services.VoiceCommandsStorageService.IVoiceCommandsStorageService, Services.VoiceCommandsStorageService.VoiceCommandsStorageService>();
         }

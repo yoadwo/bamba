@@ -43,11 +43,16 @@ export class SearchComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 
-  activateVoiceCommand(id: number) {    
-    this.voiceCommandsHttp.activateVoiceCommand(id);
+  activateVoiceCommand(voiceCommand: VoiceCommand) {   
+    voiceCommand.isPlaying = true; 
+    this.voiceCommandsHttp.activateVoiceCommand(voiceCommand.id).subscribe((resp: any) => {
+      if (resp.status){
+        voiceCommand.isPlaying = false;
+      }
+    });
   }
 
-  playAudioPreview(voiceCommand: any){
+  playAudioPreview(voiceCommand: VoiceCommand){
     // single audio element in DOM, change its src only if a different audio
     if (this.audioPlayerRef.nativeElement.getAttribute('audio-id') != voiceCommand.id){
       this.audioPlayerRef.nativeElement.setAttribute('src',this.getAudioPreviewFile(voiceCommand.id));

@@ -1,4 +1,5 @@
 export class VoiceCommand {
-    Id!: number;
-    Title!: string;
+    id!: number;
+    title!: string;
+    isPlaying: boolean = false;
 }

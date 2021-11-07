@@ -17,7 +17,8 @@
       <ng-container matColumnDef="launch">
         <th mat-header-cell *matHeaderCellDef>הפעלה במחשב</th>
         <td mat-cell *matCellDef="let voiceCommand">
-          <button mat-icon-button (click)="activateVoiceCommand(voiceCommand.id)">
+          <button mat-icon-button (click)="activateVoiceCommand(voiceCommand)"
+          [disabled]="voiceCommand.isPlaying">
             <mat-icon>settings_remote</mat-icon>
           </button>
         </td>
