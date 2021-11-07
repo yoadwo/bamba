@@ -25,12 +25,11 @@ namespace BambaAdminAPI
                 {
                     var allowedHosts = Configuration.GetSection("Cors").Get<string[]>();
                     builder
-                    //.SetIsOriginAllowed(origin =>
-                    //{
-                    //    return allowedHosts.Any(host => origin.Contains(host));
-                    //})
+                    .SetIsOriginAllowed(origin =>
+                    {
+                        return allowedHosts.Any(host => origin.Contains(host));
+                    })
                     //.WithHeaders("Origin", "Content-Type")
-                    .AllowAnyOrigin()
                     .AllowAnyHeader()
                     .AllowAnyMethod();
                 });
