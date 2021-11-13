@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { NgrokUrlService } from './services/ngrokUrl/ngrok-url.service';
+import { OktaAuthService } from '@okta/okta-angular';
 
 @Component({
   selector: 'app-root',
@@ -9,18 +8,23 @@ import { NgrokUrlService } from './services/ngrokUrl/ngrok-url.service';
 })
 export class AppComponent implements OnInit {
   title = 'כלבלב בשלט רחוק';
-  url: string = '';
+  isAuthenticated = false;
 
-  constructor(private ngrokUrl: NgrokUrlService) {
+  constructor(
+    public oktaAuth: OktaAuthService) {
+    // subscribe to authentication state changes
+    this.oktaAuth.$authenticationState.subscribe(
+      (isAuthenticated: boolean) => this.isAuthenticated = isAuthenticated
+    );
   }
 
-  ngOnInit(): void {
-    if (!environment.production){
-      this.url += environment.baseUrl;
-    } else {
-      this.url += this.ngrokUrl.getPublicTunnel();
-    }
+  async ngOnInit(): Promise<void> {
+    // get authentication state for immediate use
+    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
+  }
 
-    
+  // not in use, auto redirect
+  async login(): Promise<void> {
+    await this.oktaAuth.signInWithRedirect();
   }
 }
