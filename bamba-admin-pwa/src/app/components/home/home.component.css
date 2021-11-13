@@ -8,8 +8,8 @@ img {
 }
 
 .expanded-toolbar {
-    justify-content: space-between;
     align-items: center;
+    height: 100%;
   }
 
 footer {
@@ -19,6 +19,11 @@ footer {
 footer > .expanded-toolbar {
   justify-content: center;
   font-size: small;
+}
+
+footer >.expanded-toolbar > span {
+  display: flex;
+  align-items: center;
 }
 
 .expanded-toolbar, p {

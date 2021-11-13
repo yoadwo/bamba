@@ -7,7 +7,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [OktaAuthGuard]},
+  { path: '', component: HomeComponent/* , canActivate: [OktaAuthGuard] */},
   { path: 'callback', component: OktaCallbackComponent },
   { path: '404', component: NotFoundComponent},
   { path: '**', redirectTo: '/404'} 

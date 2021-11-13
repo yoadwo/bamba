@@ -13,14 +13,15 @@ export class AppComponent implements OnInit {
   constructor(
     public oktaAuth: OktaAuthService) {
     // subscribe to authentication state changes
-    this.oktaAuth.$authenticationState.subscribe(
-      (isAuthenticated: boolean) => this.isAuthenticated = isAuthenticated
-    );
+    // this.oktaAuth.$authenticationState.subscribe(
+    //   (isAuthenticated: boolean) => this.isAuthenticated = isAuthenticated
+    // );
   }
 
   async ngOnInit(): Promise<void> {
     // get authentication state for immediate use
-    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
+    // this.isAuthenticated = await this.oktaAuth.isAuthenticated();
+    this.isAuthenticated = true;
   }
 
   // not in use, auto redirect

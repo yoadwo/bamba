@@ -15,9 +15,9 @@ export class HomeComponent implements OnInit {
   constructor(
     private ngrokUrl: NgrokUrlService,
     public oktaAuth: OktaAuthService) {
-      this.oktaAuth.$authenticationState.subscribe(
-        (isAuthenticated: boolean) => this.isAuthenticated = isAuthenticated
-      );
+      // this.oktaAuth.$authenticationState.subscribe(
+      //   (isAuthenticated: boolean) => this.isAuthenticated = isAuthenticated
+      // );
      }
 
   async ngOnInit(): Promise<void> {
@@ -27,7 +27,8 @@ export class HomeComponent implements OnInit {
       this.url += this.ngrokUrl.getPublicTunnel();
     }
 
-    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
+    // this.isAuthenticated = await this.oktaAuth.isAuthenticated();
+    this.isAuthenticated = true;
   }
 
   async logout(): Promise<void> {
