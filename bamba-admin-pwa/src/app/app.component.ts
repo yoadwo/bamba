@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { Component } from '@angular/core';
 import { NgrokUrlService } from './services/ngrokUrl/ngrok-url.service';
 
 @Component({
@@ -7,20 +6,9 @@ import { NgrokUrlService } from './services/ngrokUrl/ngrok-url.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'כלבלב בשלט רחוק';
-  url: string = '';
 
-  constructor(private ngrokUrl: NgrokUrlService) {
-  }
-
-  ngOnInit(): void {
-    if (!environment.production){
-      this.url += environment.baseUrl;
-    } else {
-      this.url += this.ngrokUrl.getPublicTunnel();
-    }
-
-    
+  constructor() {
   }
 }

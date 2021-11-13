@@ -7,6 +7,25 @@ img {
     width: 15%;
 }
 
+.expanded-toolbar {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+footer {
+  margin-top: 1rem;
+}
+
+footer > .expanded-toolbar {
+  justify-content: center;
+  height: 32px;
+  font-size: small;
+}
+
+.expanded-toolbar, p {
+  margin: 0;
+}
+
 @media (max-width: 480px) {
     img {
         width: 25%;
