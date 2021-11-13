@@ -29,6 +29,7 @@ namespace BambaAdminAPI
                     {
                         return allowedHosts.Any(host => origin.Contains(host));
                     })
+                    //.AllowAnyOrigin()
                     //.WithHeaders("Origin", "Content-Type")
                     .AllowAnyHeader()
                     .AllowAnyMethod();
