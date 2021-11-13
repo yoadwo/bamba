@@ -1,2 +1,11 @@
 <img src="assets/logo_ps.png">
 <h1>מוקדש לבמבה באהבה</h1>
+<app-search></app-search>
+<footer>
+    <mat-toolbar color="grey" class="expanded-toolbar">
+      <span *ngIf="isAuthenticated">      
+        <p>Web API @ {{url}}</p>
+        <button mat-button  (click)="logout()">Log out</button>
+      </span>      
+    </mat-toolbar>
+  </footer>
