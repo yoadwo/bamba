@@ -3,8 +3,9 @@
 <app-search></app-search>
 <footer>
     <mat-toolbar color="grey" class="expanded-toolbar">
-      <span>      
+      <span *ngIf="isAuthenticated">      
         <p>Web API @ {{url}}</p>
-      </span>  
+        <button mat-button  (click)="logout()"> Logged in | Log out </button>
+      </span>      
     </mat-toolbar>
   </footer>
