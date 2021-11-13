@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,7 +8,7 @@ namespace BambaAdminAPI.Services.VoiceCommandsStorageService
 {
     public class VoiceCommandsStorageService : IVoiceCommandsStorageService
     {
-        private static readonly Models.VoiceCommand[] actions = new[]
+        private static readonly Models.VoiceCommand[] voiceCommands = new[]
         {
             new Models.VoiceCommand { Id = 0, Title = "במבה", AudioPath = "just-bamba.mp3" },
             new Models.VoiceCommand { Id = 1, Title = "לא", AudioPath = "just-no.mp3" },
@@ -19,20 +20,28 @@ namespace BambaAdminAPI.Services.VoiceCommandsStorageService
 
         };
 
+        private readonly ILogger<VoiceCommandsStorageService> _logger;
+
+        public VoiceCommandsStorageService(ILogger<VoiceCommandsStorageService> logger)
+        {
+            _logger = logger;
+        }
+
         public IEnumerable<Models.VoiceCommand> Find(string title)
         {
-            return actions.Where(action => action.Title.Contains(title))
+            return voiceCommands.Where(action => action.Title.Contains(title))
                 .Select(action => new Models.VoiceCommand { Title = action.Title });
         }
 
         public Models.VoiceCommand Get(int id)
         {
-            return actions.FirstOrDefault(action => action.Id == id);
+            return voiceCommands.FirstOrDefault(action => action.Id == id);
         }
 
         public IEnumerable<Models.VoiceCommand> GetAll()
         {
-            return actions;
+            _logger.LogInformation("Total voice commands available: {0}", voiceCommands.Length);
+            return voiceCommands;
         }
     }
 }

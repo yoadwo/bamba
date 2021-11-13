@@ -29,6 +29,7 @@ namespace BambaAdminAPI.Controllers
         [HttpGet]
         public IEnumerable<Models.VoiceCommand> GetAll()
         {
+            _logger.LogInformation("Get All");
             return _voiceCommandsStorageService.GetAll();
         }
 
@@ -36,9 +37,11 @@ namespace BambaAdminAPI.Controllers
         [Route("activate")]
         public async Task<IActionResult> Activate(int id)
         {
+            _logger.LogInformation("Get by Id: {0}", id);
             var voiceCommandToExecute = _voiceCommandsStorageService.Get(id);
             if (voiceCommandToExecute == null)
             {
+                _logger.LogInformation("No Voice Command found with id {0}", id);
                 return NotFound(id);
             }
             _logger.LogInformation("Voice Command found with id {0}, audio path '{1}'",
@@ -65,8 +68,11 @@ namespace BambaAdminAPI.Controllers
             var voiceCommandToPreview = _voiceCommandsStorageService.Get(id);
             if (voiceCommandToPreview == null)
             {
+                _logger.LogInformation("No Voice Command found with id {0}", id);
                 return NotFound(id);
             }
+            _logger.LogInformation("Voice Command found with id {0}, audio path '{1}'",
+                id, voiceCommandToPreview.AudioPath);
 
             var audioPath = "Assets\\Audio\\" + voiceCommandToPreview.AudioPath;
             var memory = new MemoryStream();
