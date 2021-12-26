@@ -90,7 +90,6 @@ cross/android-rootfs/
 
 # Visual Studio
 .vs/
-
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
