@@ -10,13 +10,13 @@ namespace BambaAdminAPI.Services.VoiceCommandsStorageService
     {
         private static readonly Models.VoiceCommand[] voiceCommands = new[]
         {
-            new Models.VoiceCommand { Id = 0, Title = "במבה", AudioPath = "just-bamba.mp3" },
+            new Models.VoiceCommand { Id = 0, Title = "אריאה", AudioPath = "just-arya.mp3" },
             new Models.VoiceCommand { Id = 1, Title = "לא", AudioPath = "just-no.mp3" },
             new Models.VoiceCommand { Id = 2, Title = "למטה", AudioPath = "just-down.mp3" },
-            new Models.VoiceCommand { Id = 3, Title = "במבה לא", AudioPath = "bamba-no.mp3" },
-            new Models.VoiceCommand { Id = 4, Title = "במבה למטה", AudioPath = "bamba-down.mp3" },
+            new Models.VoiceCommand { Id = 3, Title = "אריאה לא", AudioPath = "arya-no.mp3" },
+            new Models.VoiceCommand { Id = 4, Title = "אריאה למטה", AudioPath = "arya-down.mp3" },
             new Models.VoiceCommand { Id = 5, Title = "כלבה טובה", AudioPath = "good-dog.mp3" },
-            new Models.VoiceCommand { Id = 6, Title = "יופי במבה", AudioPath = "yofi-bamba.mp3" }
+            new Models.VoiceCommand { Id = 6, Title = "יופי אריאה", AudioPath = "good-arya.mp3" }
 
         };
 
