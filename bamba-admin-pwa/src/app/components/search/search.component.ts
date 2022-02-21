@@ -63,6 +63,35 @@ export class SearchComponent implements OnInit {
     this.audioPlayerRef.nativeElement.addEventListener('ended', () => {
       voiceCommand.isPlaying = false;
     });
+    this.audioPlayerRef.nativeElement.addEventListener('error', (event: Event) => {
+      voiceCommand.isPlaying = false;
+      //this.mapErrorByBrowser(event);
+    });
+  }
+
+  mapErrorByBrowser(event: any){
+    let error = event;
+
+    // Chrome v60
+    if (event.path && event.path[0]) {
+      error = event.path[0].error;
+    }
+
+    // // Firefox v55
+    if (event.originalTarget) {
+      error = error.originalTarget.error;
+    }
+
+    // // Here comes the error message
+    let errMessage;
+    if (error.message != ""){
+      errMessage = error.message;
+    }
+    else {
+      errMessage = "שגיאה במציאת הקובץ על מחשב היעד"
+    }
+    alert(errMessage);
+
   }
 
   getAudioPreviewFile(id: number){  
