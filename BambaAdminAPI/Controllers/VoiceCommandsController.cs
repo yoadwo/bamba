@@ -17,6 +17,7 @@ namespace BambaAdminAPI.Controllers
     {
         private readonly IVoiceCommandsStorageService _voiceCommandsStorageService;
         private readonly ILogger<VoiceCommandsController> _logger;
+        private const string BASE_AUDIO_PATH = "Assets\\Audio\\Arya\\";
 
         public VoiceCommandsController(
             IVoiceCommandsStorageService vcStgService,
@@ -47,8 +48,8 @@ namespace BambaAdminAPI.Controllers
             _logger.LogInformation("Voice Command found with id {0}, audio path '{1}'",
                 id, voiceCommandToExecute.AudioPath);
 
-            var audioPath = "Assets\\Audio\\Arya";
-            using (var audioFile = new AudioFileReader(audioPath + voiceCommandToExecute.AudioPath))
+            var audioPath = BASE_AUDIO_PATH + voiceCommandToExecute.AudioPath;
+            using (var audioFile = new AudioFileReader(audioPath))
             using (var outputDevice = new WaveOutEvent())
             {
                 outputDevice.Init(audioFile);
@@ -74,7 +75,7 @@ namespace BambaAdminAPI.Controllers
             _logger.LogInformation("Voice Command found with id {0}, audio path '{1}'",
                 id, voiceCommandToPreview.AudioPath);
 
-            var audioPath = "Assets\\Audio\\Arya\\" + voiceCommandToPreview.AudioPath;
+            var audioPath = BASE_AUDIO_PATH + voiceCommandToPreview.AudioPath;
             var memory = new MemoryStream();
             try
             {
