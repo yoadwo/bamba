@@ -47,7 +47,7 @@ namespace BambaAdminAPI.Controllers
             _logger.LogInformation("Voice Command found with id {0}, audio path '{1}'",
                 id, voiceCommandToExecute.AudioPath);
 
-            var audioPath = "Assets\\Audio\\";
+            var audioPath = "Assets\\Audio\\Arya";
             using (var audioFile = new AudioFileReader(audioPath + voiceCommandToExecute.AudioPath))
             using (var outputDevice = new WaveOutEvent())
             {
@@ -74,12 +74,21 @@ namespace BambaAdminAPI.Controllers
             _logger.LogInformation("Voice Command found with id {0}, audio path '{1}'",
                 id, voiceCommandToPreview.AudioPath);
 
-            var audioPath = "Assets\\Audio\\" + voiceCommandToPreview.AudioPath;
+            var audioPath = "Assets\\Audio\\Arya\\" + voiceCommandToPreview.AudioPath;
             var memory = new MemoryStream();
-            using (var stream = new FileStream(audioPath, FileMode.Open, FileAccess.Read, FileShare.Read))
+            try
             {
-                await stream.CopyToAsync(memory);
+                using (var stream = new FileStream(audioPath, FileMode.Open, FileAccess.Read, FileShare.Read))
+                {
+                    await stream.CopyToAsync(memory);
+                }
             }
+            catch (FileNotFoundException ex)
+            {
+                _logger.LogError(ex, "Voice command path not found");
+                return Problem("path not found, check logs for full path", null, 500, "הקובץ לא נמצא");
+            }
+            
             memory.Position = 0;
             var types = GetMimeTypes();
             var ext = Path.GetExtension(audioPath).ToLowerInvariant();

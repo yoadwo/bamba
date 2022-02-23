@@ -22,8 +22,6 @@ export class VoiceCommandsHttpService  {
       this.voiceCommandUrl = url + '/api/voiceCommands';
      }
 
-    
-
   async get(route: string, data?: any) {
     var url = this.voiceCommandUrl + route;
     let params = new HttpParams();

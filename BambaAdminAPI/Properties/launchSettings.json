@@ -20,9 +20,17 @@
     "IIS-X-Prod": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "api/VoiceCommands",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Production"
+      }
+    },
+    "IIS-X-Dev": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "api/VoiceCommands",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
     "BambaAdminAPI": {
