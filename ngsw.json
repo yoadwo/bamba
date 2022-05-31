@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1653888094289,
+  "timestamp": 1653972838086,
   "index": "/bamba/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/bamba/favicon.png",
         "/bamba/index.html",
-        "/bamba/main.ff9845269d98273db23c.js",
+        "/bamba/main.a8c7bb6d8f5bc04dc023.js",
         "/bamba/manifest.webmanifest",
         "/bamba/polyfills.44c590ddbac99562b407.js",
         "/bamba/runtime.71113ccbe80c0495fbab.js",
@@ -128,10 +128,10 @@
     "/bamba/assets/icons/bamba/icon-96x96.png": "396ca82511dae14d8d79dec21eb7f20da40e6e5a",
     "/bamba/assets/icons/bamba/logo_ps_bamba.png": "807f0141d9f546ceca9c41c0b45cad05fc5897f1",
     "/bamba/assets/logo_ps_arya.png": "878288610c2ab7916542eae7e3aab5e7c56f0844",
-    "/bamba/assets/tunnels.json": "2c9362c6e7393632d431feec52db6a1c3d8e1ecd",
+    "/bamba/assets/tunnels.json": "268f325364d33b9cf12630866971fd11be980d0f",
     "/bamba/favicon.png": "96f9c17eb133603ff1de75d886b215fe2a586dd8",
-    "/bamba/index.html": "5a8cfd61e78eafe0edec8d2c3eb280d2993b28ce",
-    "/bamba/main.ff9845269d98273db23c.js": "c0808add1b5943e9716e9c1c0e53aa5edc0fb1ee",
+    "/bamba/index.html": "3e7ab5254352c7fe61a66e97739687c049be6277",
+    "/bamba/main.a8c7bb6d8f5bc04dc023.js": "7399a6a230d8756956d51f708aa940d3892176f1",
     "/bamba/manifest.webmanifest": "4eb1465373fd2e2f3d25a7c13ebb3fe58c0cf9a8",
     "/bamba/polyfills.44c590ddbac99562b407.js": "8aa5fcbd6cb0c2ba76e3a562657343dc0a3a33a4",
     "/bamba/runtime.71113ccbe80c0495fbab.js": "85030d9130988c3ea129f6353546c5adeaae6ab3",
