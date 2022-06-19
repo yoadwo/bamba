@@ -2,7 +2,7 @@ name: Deploy To Self Branch
 on:
   push:	
     branches:	
-      - bugs/fix-deployment-issues
+      - master
 
 defaults:
   run:
