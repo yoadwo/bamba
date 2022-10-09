@@ -52,8 +52,22 @@ namespace BambaAdminAPI.Controllers
             using (var audioFile = new AudioFileReader(audioPath))
             using (var outputDevice = new WaveOutEvent())
             {
-                outputDevice.Init(audioFile);
-                outputDevice.Play();
+                try
+                {
+                    outputDevice.Init(audioFile);
+                    outputDevice.Play();
+                }
+                catch (NAudio.MmException MmException)
+                {
+                    _logger.LogError(MmException, "Could not initialize audio device or play sound");
+                    return Problem(MmException.Message, null, null, "Audio Device Error");
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e, "Unexpected error");
+                    return Problem(e.Message);
+                }    
+                
                 while (outputDevice.PlaybackState == PlaybackState.Playing)
                 {
                     await Task.Delay(1000);

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging.AzureAppServices;
 using System.Linq;
 
 namespace BambaAdminAPI
@@ -38,6 +39,12 @@ namespace BambaAdminAPI
 
             services.AddControllers();
             services.AddLogging();
+            services.Configure<AzureFileLoggerOptions>(options =>
+            {
+                options.FileName = "bamba-admin-api-log";
+                options.FileSizeLimit = 50 * 1024;
+                options.RetainedFileCountLimit = 10;
+            });
 
             services.AddSingleton<Services.VoiceCommandsStorageService.IVoiceCommandsStorageService, Services.VoiceCommandsStorageService.VoiceCommandsStorageService>();
         }

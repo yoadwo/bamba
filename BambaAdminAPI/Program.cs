@@ -21,6 +21,12 @@ namespace BambaAdminAPI
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                })
+                .ConfigureLogging(logging =>
+                {
+                    logging.AddConsole();
+                    logging.AddDebug();
+                    logging.AddAzureWebAppDiagnostics();
                 });
     }
 }
