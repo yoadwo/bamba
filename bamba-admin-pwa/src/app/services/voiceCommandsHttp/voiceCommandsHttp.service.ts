@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { NgrokUrlService } from '../ngrokUrl/ngrok-url.service';
+import { BaseUrlService } from '../baseUrl/base-url.service';
 
 
 @Injectable({
@@ -12,14 +12,8 @@ export class VoiceCommandsHttpService  {
 
   constructor(
     private http: HttpClient,
-    private ngrok: NgrokUrlService) {
-      var url = '';
-      if (!environment.production){
-        url = environment.baseUrl;
-      } else {
-        url = this.ngrok.getPublicTunnel();
-      }
-      this.voiceCommandUrl = url + '/api/voiceCommands';
+    private baseUrl: BaseUrlService) {
+      this.voiceCommandUrl = baseUrl.url + '/api/voiceCommands';
      }
 
   async get(route: string, data?: any) {

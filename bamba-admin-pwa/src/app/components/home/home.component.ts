@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgrokUrlService } from 'src/app/services/ngrokUrl/ngrok-url.service';
 import { OktaAuthService } from '@okta/okta-angular';
+import { BaseUrlService } from 'src/app/services/baseUrl/base-url.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   isAuthenticated = false;
 
   constructor(
-    private ngrokUrl: NgrokUrlService,
+    private baseUrl: BaseUrlService,
     public oktaAuth: OktaAuthService) {
       // this.oktaAuth.$authenticationState.subscribe(
       //   (isAuthenticated: boolean) => this.isAuthenticated = isAuthenticated
@@ -21,17 +21,7 @@ export class HomeComponent implements OnInit {
      }
 
   async ngOnInit(): Promise<void> {
-    if (!environment.production){
-      this.url += environment.baseUrl;
-    } else {
-      if (environment.baseUrl == ''){
-        // no baseurl specified - generate from tunnels file
-        this.url += this.ngrokUrl.getPublicTunnel();
-      } else {
-        // baseurl specified, for deployment on cloud
-        this.url += environment.baseUrl;
-      }
-    }
+    this.url = this.baseUrl.url;
 
     // this.isAuthenticated = await this.oktaAuth.isAuthenticated();
     this.isAuthenticated = true;
