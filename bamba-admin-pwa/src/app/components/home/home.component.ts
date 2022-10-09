@@ -24,7 +24,13 @@ export class HomeComponent implements OnInit {
     if (!environment.production){
       this.url += environment.baseUrl;
     } else {
-      this.url += this.ngrokUrl.getPublicTunnel();
+      if (environment.baseUrl == ''){
+        // no baseurl specified - generate from tunnels file
+        this.url += this.ngrokUrl.getPublicTunnel();
+      } else {
+        // baseurl specified, for deployment on cloud
+        this.url += environment.baseUrl;
+      }
     }
 
     // this.isAuthenticated = await this.oktaAuth.isAuthenticated();
