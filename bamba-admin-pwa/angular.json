@@ -82,7 +82,7 @@
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.aspnetzero.ts"
+                  "with": "src/environments/environment.andrewhalil.ts"
                 }
               ],
               "outputHashing": "all"

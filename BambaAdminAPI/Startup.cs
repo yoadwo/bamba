@@ -60,8 +60,6 @@ namespace BambaAdminAPI
             {
                 app.UseHttpsRedirection();
             }
-
-            System.Console.WriteLine("Env: " + env.EnvironmentName);
             
 
             app.UseRouting();
