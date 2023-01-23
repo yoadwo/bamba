@@ -1,37 +1,28 @@
-## Welcome to GitHub Pages
+# Welcome to Arya's Admin App
 
-You can use the [editor on GitHub](https://github.com/yoadwo/bamba/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+This app allows you to remotely control your PC, and activate pre-recorded audio files.
+Main use case: Your dog is at home, you see it on the CCTV, but don't want to shout at it via intercom and risk sounding stupid. What do you do? click the voice command button to play it directly on your computer.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Prerequisites
+1. ngrok installed and a token properly set up; see [ngrok website](https://ngrok.com/)
+2. git installed on your computer
+3. github account, and a repo forked from the [AdminApp](https://github.com/yoadwo/bamba/tree/master) github repo.
+4. github *pages* set up, and a "deploy to self" github Action configured
 
-### Markdown
+## Optional
+1. dotnet core 3.1 SDK installed, to compile your own code, with your own audio files
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## How this working?
+The flow inside the script is as follows:
+1. starting ngrok with a predefined port
+2. setting local env variables to control the server's configuration
+3. launching the server (via the precompiled binary)
+4. querying the local ngrok instance, and outputting the result into the "tunnels" file
+5. committing the code with the new tunnels file
+6. the github Action will take place, rebuilding the PWA app with the current ngrok tunnel into your pc
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/yoadwo/bamba/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Files
+1. The *usage* directory is the most basic files you need in order for the app to run: a precompiled binary, a script to call both ngrok and the server precompiled binary, and an icon for the shortcut
+2. The *bamba-admin-pwa* contains the web app's source code. No need to compile it, that's what github Actions are for.
+3. The  *BambaAdminApi* contains the server's source code. You may use it as is (using the binary in *usage* directory) or compile it again with your own sound files names.
