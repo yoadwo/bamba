@@ -7,7 +7,7 @@ Main use case: Your dog is at home, you see it on the CCTV, but don't want to sh
 1. ngrok installed and a token properly set up; see [ngrok website](https://ngrok.com/)
 2. git installed on your computer
 3. dotnet core 3.1 SDK installed. The app isn't compiled as self-contanied (oopsy)
-4. self signed certificate for localhost, to allow the app to run (try ```dotnet dev-certs https`, or via the browser)
+4. self signed certificate for localhost, to allow the app to run (try ```dotnet dev-certs https```, or via the browser)
 5. github account, and a repo forked from the [AdminApp](https://github.com/yoadwo/bamba/tree/master) github repo.
 6. github *pages* set up, and a "deploy to self" github Action configured
 
