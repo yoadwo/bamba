@@ -36,6 +36,16 @@ namespace BambaAdminAPI
                 });
             });
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Arya Admin API",
+                    Description = "Swagger for testing the admin endpoints",
+                });
+            });
+
             services.AddControllers();
             services.AddLogging();
 
@@ -55,6 +65,11 @@ namespace BambaAdminAPI
             }            
 
             app.UseRouting();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
+            });
 
             app.UseCors();
 
