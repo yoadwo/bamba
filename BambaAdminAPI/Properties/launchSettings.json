@@ -28,7 +28,7 @@
     "IIS-X-Dev": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/VoiceCommands",
+      "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

@@ -6,7 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NAudio" Version="2.0.1" />
+    <PackageReference Include="NetCoreAudio" Version="1.7.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -14,6 +15,27 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Assets\Audio\Arya\arya-down.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Audio\Arya\arya-no.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Audio\Arya\good-arya.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Audio\Arya\good-dog.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Audio\Arya\just-arya.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Audio\Arya\just-down.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Audio\Arya\just-no.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
     <None Update="Assets\Audio\bamba-down,bamba-no,good-dog.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

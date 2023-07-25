@@ -11,6 +11,12 @@ Main use case: Your dog is at home, you see it on the CCTV, but don't want to sh
 5. github account, and a repo forked from the [AdminApp](https://github.com/yoadwo/bamba/tree/master) github repo.
 6. github *pages* set up, and a "deploy to self" github Action configured
 
+## Run using Docker
+1. I dockerized the app, but could not get it to run properly. This was probably due to me running a windows machine and linux containers. On Linux, You can try pulling the image `yoadw20/bamba-api:0.2.3-linux` and running it such as `docker run ... --device /dev/snd`. Maybe it will work, maybe it won't :)
+2. For the adventurous, you can try and installing _pulse audio_, a socket between the host and guest machines: see this [stack overflow](https://stackoverflow.com/a/51860606) post 
+
+
+
 ## How this working?
 The flow inside the script is as follows:
 1. starting ngrok with a predefined port
