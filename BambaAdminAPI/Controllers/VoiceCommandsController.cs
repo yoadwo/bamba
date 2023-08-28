@@ -1,13 +1,10 @@
 ﻿using BambaAdminAPI.Services.VoiceCommandsStorageService;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using NAudio.Wave;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
+using NetCoreAudio;
 
 namespace BambaAdminAPI.Controllers
 {
@@ -49,16 +46,10 @@ namespace BambaAdminAPI.Controllers
                 id, voiceCommandToExecute.AudioPath);
 
             var audioPath = BASE_AUDIO_PATH + voiceCommandToExecute.AudioPath;
-            using (var audioFile = new AudioFileReader(audioPath))
-            using (var outputDevice = new WaveOutEvent())
-            {
-                outputDevice.Init(audioFile);
-                outputDevice.Play();
-                while (outputDevice.PlaybackState == PlaybackState.Playing)
-                {
-                    await Task.Delay(1000);
-                }
-            }
+
+            var player = new Player();
+            await player.Play(audioPath);
+
             return Ok(new { id, status = true });
         }
 
