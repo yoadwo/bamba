@@ -82,3 +82,6 @@ Desktop.ini
 # Private test configuration and binaries.
 config.ps1
 **/IISApplications
+
+## Application Arya
+usage/ngrok.exe
