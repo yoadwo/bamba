@@ -1,6 +1,6 @@
 echo off
 echo 'Begin NGROK auto update batch'
-START "NGROK" ngrok http -host-header=localhost https://localhost:61839
+START "NGROK" ngrok http --host-header=localhost https://localhost:61839
 set DOTNET_ENVIRONMENT=Production
 set ASPNETCORE_URLS=https://*:61839
 cd publish
