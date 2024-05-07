@@ -50,6 +50,8 @@ namespace BambaAdminAPI
             services.AddLogging();
 
             services.AddSingleton<Services.VoiceCommandsStorageService.IVoiceCommandsStorageService, Services.VoiceCommandsStorageService.VoiceCommandsStorageService>();
+
+            services.Configure<Config.ApplicationConfig>(Configuration.GetSection("Application"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
