@@ -14,8 +14,6 @@ namespace BambaAdminAPI.Controllers
     {
         private readonly IVoiceCommandsStorageService _voiceCommandsStorageService;
         private readonly ILogger<VoiceCommandsController> _logger;
-        private const string BASE_AUDIO_PATH = "Assets\\Audio\\Arya\\";
-
         public VoiceCommandsController(
             IVoiceCommandsStorageService vcStgService,
             ILogger<VoiceCommandsController> logger)
@@ -45,10 +43,8 @@ namespace BambaAdminAPI.Controllers
             _logger.LogInformation("Voice Command found with id {0}, audio path '{1}'",
                 id, voiceCommandToExecute.AudioPath);
 
-            var audioPath = BASE_AUDIO_PATH + voiceCommandToExecute.AudioPath;
-
             var player = new Player();
-            await player.Play(audioPath);
+            await player.Play(voiceCommandToExecute.AudioPath);
 
             return Ok(new { id, status = true });
         }
@@ -65,12 +61,11 @@ namespace BambaAdminAPI.Controllers
             }
             _logger.LogInformation("Voice Command found with id {0}, audio path '{1}'",
                 id, voiceCommandToPreview.AudioPath);
-
-            var audioPath = BASE_AUDIO_PATH + voiceCommandToPreview.AudioPath;
+            
             var memory = new MemoryStream();
             try
             {
-                using (var stream = new FileStream(audioPath, FileMode.Open, FileAccess.Read, FileShare.Read))
+                using (var stream = new FileStream(voiceCommandToPreview.AudioPath, FileMode.Open, FileAccess.Read, FileShare.Read))
                 {
                     await stream.CopyToAsync(memory);
                 }
@@ -83,8 +78,8 @@ namespace BambaAdminAPI.Controllers
             
             memory.Position = 0;
             var types = GetMimeTypes();
-            var ext = Path.GetExtension(audioPath).ToLowerInvariant();
-            return File(memory, types[ext], audioPath);
+            var ext = Path.GetExtension(voiceCommandToPreview.AudioPath).ToLowerInvariant();
+            return File(memory, types[ext], voiceCommandToPreview.AudioPath);
         }
 
         private Dictionary<string, string> GetMimeTypes()
