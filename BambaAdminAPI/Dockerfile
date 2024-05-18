@@ -11,6 +11,11 @@ WORKDIR /app
 COPY *.csproj ./
 RUN dotnet restore
 
+# # Generate development certificates
+RUN dotnet dev-certs https --clean
+RUN dotnet dev-certs https --trust
+RUN dotnet dev-certs https --export-path /https/aspnetapp.pfx -p YourPassword
+
 # # Copy the rest of the application code
 COPY . ./
 
@@ -31,12 +36,26 @@ WORKDIR /app
 # # Copy the published output from the build stage
 COPY --from=build /app/publish .
 
+# # Copy the certificate from the build stage
+COPY --from=build /https/aspnetapp.pfx /https/aspnetapp.pfx
+
+# # Set environment variables for the certificate
+ENV ASPNETCORE_Kestrel__Certificates__Default__Password="YourPassword"
+ENV ASPNETCORE_Kestrel__Certificates__Default__Path="/https/aspnetapp.pfx"
+
+# # Install the certificate in the trusted root store
+RUN apk update && \
+    apk add --no-cache ca-certificates && \
+    cp /https/aspnetapp.pfx /usr/local/share/ca-certificates/aspnetapp.pfx && \
+    update-ca-certificates
+
+
 # # install packages needed by nuget NetCoreAudio to play sound
 RUN apk add --no-cache bash pulseaudio alsa-utils sox alsa-plugins-pulse mpg123
 
 # # setup env
 ENV PULSE_SERVER=host.docker.internal
-ENV ASPNETCORE_URLS=http://+:61839
+ENV ASPNETCORE_URLS=https://+:61839
 
 # # run
 EXPOSE 61839
