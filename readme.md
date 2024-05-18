@@ -15,7 +15,7 @@ Main use case: Your dog is at home, you see it on the CCTV, but don't want to sh
 ## Run using Docker
 1. When running PulseAudio on Windows, use arguments `--use-pid-file=false -D`
 2. Specify a mount path for your audio files (mp3 and wav) with `-v host:/app/Assets/Audio`
-
+3. The image uses a self-signed certificate with hard coded password. WIP.
 
 ## How this working?
 The flow inside the script is as follows:
