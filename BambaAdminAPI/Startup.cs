@@ -34,7 +34,7 @@ namespace BambaAdminAPI
                     .AllowAnyHeader()
                     .AllowAnyMethod();
                 });
-            });
+            });            
 
             services.AddSwaggerGen(c =>
             {
@@ -68,7 +68,14 @@ namespace BambaAdminAPI
 
             app.UseRouting();
 
-            app.UseSwagger();
+            app.UseSwagger(options =>
+            {
+                options.PreSerializeFilters.Add((swagger, httpReq) =>
+                {
+                    //Clear servers -element in swagger.json because it got the wrong port when hosted behind reverse proxy
+                    swagger.Servers.Clear();
+                });
+            });
             app.UseSwaggerUI(c => {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
             });
