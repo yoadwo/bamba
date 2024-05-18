@@ -2,7 +2,7 @@ echo off
 echo 'Begin NGROK auto update batch'
 START "NGROK" ngrok http --host-header=localhost https://localhost:61839
 START "BambaAdminAPI" docker run ^
- -p 61839 ^
+ -p 61839:61839 ^
  -v C:\Users\yoadw\source\repos\bamba\bamba\BambaAdminAPI\Assets\Audio\Arya:/app/Assets/Audio ^
  bamba-api:0.2.6
 echo 'waiting for process to complete setup'
