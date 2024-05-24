@@ -42,4 +42,3 @@ jobs:
     - name: npm-build
       run: |
         echo "${{ steps.query.outputs.TUNNELS_JSON }}" > tunnels.json
-        
