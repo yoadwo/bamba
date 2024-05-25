@@ -3,6 +3,7 @@ on:
   push:	
     branches:	
       - master
+  workflow_dispatch:
 
 defaults:
   run:
@@ -18,6 +19,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 16.x
+    - name: query ngrok tunnels
+      id: query
+      run: |
+        response=$(curl -X GET -H "Authorization: Bearer ${{ secrets.NGROK_API_KEY }}" -H "Ngrok-Version: 2" https://api.ngrok.com/tunnels --insecure)
+        echo $response
+        echo $response > src/assets/tunnels.json
     - run: npm ci
       working-directory: bamba-admin-pwa
     - run: npm run build --if-present
