@@ -55,8 +55,7 @@ RUN apk add --no-cache bash pulseaudio alsa-utils sox alsa-plugins-pulse mpg123
 
 # # setup env
 ENV PULSE_SERVER=host.docker.internal
-ENV ASPNETCORE_URLS=https://+:61839
+ENV ASPNETCORE_URLS=https://+:5001;http://+:5000
 
 # # run
-EXPOSE 61839
 ENTRYPOINT ["dotnet", "BambaAdminAPI.dll"]
