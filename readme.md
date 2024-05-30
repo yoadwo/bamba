@@ -24,9 +24,9 @@ The flow inside the script is as follows:
 1. launching ngrok for reverse ssh
 2. launching the admin API with port matching ngrok's forwarding
 3. dispatching a GitHub Action which
-i. queries ngrok's API for allocated ngrok url
-ii. saves that url into the client repo as config file (`tunnels.json`)
-iii. rebuilds and deploys the updated PWA app
+    1. queries ngrok's API for allocated ngrok url
+    2. saves that url into the client repo as config file (`tunnels.json`)
+    3. rebuilds and deploys the updated PWA app
 
 ## Files
 
