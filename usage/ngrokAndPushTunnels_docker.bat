@@ -1,4 +1,14 @@
 echo off
+IF "%BAMBA_HOME%"=="" (
+    echo Error: BAMBA_HOME is not set, please set and run again. Recommend you set it to the parent direcory of 'usage'.
+    exit /b 1
+)
+
+IF "%GITHUB_BAMBA_ACCESSTOKEN%"=="" (
+    echo Error: GITHUB_BAMBA_ACCESSTOKEN is not set, please set and run again. Configure the GitHub Personal Access Token to match it.
+    exit /b 1
+)
+
 echo 'Begin NGROK auto update batch'
 START "NGROK" ngrok http --host-header=localhost https://localhost:5001
 START "BambaAdminAPI" docker run ^
